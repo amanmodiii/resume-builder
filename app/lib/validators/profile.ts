@@ -21,14 +21,14 @@ export const ProjectSchema = z.object({
   name: z.string().min(1),
   url: z.string().url().optional(),
   timeline: z.string().optional(),
-  description: z.string().max(300).optional(),
+  description: z.string().max(5000).optional(),
 });
 
 export const RoleSchema = z.object({
   title: z.string().min(1),
   startDate: z.string().optional(), // ISO date string
   endDate: z.string().optional(),
-  description: z.string().max(300).optional(),
+  description: z.string().max(5000).optional(),
 });
 
 export const ExperienceSchema = z.object({

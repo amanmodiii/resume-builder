@@ -12,14 +12,17 @@ const ProjectSchema = new Schema({
   name: { type: String, required: true },
   url: { type: String },
   timeline: { type: String },
-  description: { type: String, maxlength: 300 },
+  // allow longer descriptions (Zod allows up to 5000)
+  description: { type: String, maxlength: 5000 },
 });
 
 const RoleSchema = new Schema({
   title: { type: String },
-  startDate: { type: Date },
-  endDate: { type: Date },
-  description: { type: String, maxlength: 300 },
+  // store dates as strings so values like "Present" or ISO strings are accepted
+  startDate: { type: String },
+  endDate: { type: String },
+  // allow long descriptions (align with Zod validator)
+  description: { type: String, maxlength: 5000 },
 });
 
 const ExperienceSchema = new Schema({
